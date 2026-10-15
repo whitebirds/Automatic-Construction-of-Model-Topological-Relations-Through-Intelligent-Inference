@@ -1,0 +1,4 @@
+# Optional baseline environment; kept separate from the core-only environment.
+numpy==2.5.3
+scipy==1.18.1
+xgboost==3.4.1
