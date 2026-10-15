@@ -1,6 +1,4 @@
-# Automatic-Construction-of-Model-Topological-Relations-Through-Intelligent-Inference
-
-# Equipment Model Topology Inference
+# Automatic Construction of Model Topological Relations Through Intelligent Inference
 
 Research implementation accompanying **Automatic Construction of Model
 Topological Relations Through Intelligent Inference**.
@@ -19,9 +17,11 @@ those numerical results.
 
 ## Quick start
 
-Use Python 3.12 and a new virtual environment. From this directory:
+Use Python 3.12 and a new virtual environment. From the cloned repository root,
+enter the code directory first:
 
 ```sh
+cd topology-inference-code
 python -m venv .venv
 ```
 
@@ -54,7 +54,7 @@ on the restricted dataset.
 
 ## Train and infer with an authorized local dataset
 
-Prepare one JSON document per station following [the schema](docs/data_schema.md).
+Prepare one JSON document per station following [the schema](topology-inference-code/docs/data_schema.md).
 Training and validation documents need `labels.edges`; inference does not.
 `group_id` identifies the physical station across aliases or exports. Choose one
 representative inventory per physical station, and keep physical groups
@@ -93,13 +93,13 @@ against accidental inclusion, not a confidentiality guarantee.
 - **XGB-R / XGB-C**: optional connection prediction with basic rules, with an
   optional circuit-context busbar-candidate ranker.
 
-See [paper protocol](docs/paper_protocol.md) for the method-to-table mapping,
+See [paper protocol](topology-inference-code/docs/paper_protocol.md) for the method-to-table mapping,
 training order, selection rules and metric definitions, and
-[paper settings](configs/paper_settings.json) for the recorded public
+[paper settings](topology-inference-code/configs/paper_settings.json) for the recorded public
 hyperparameters. That JSON is a descriptive record, **not a CLI configuration
 file**. The portable runner is a single-split implementation; it does not
 replay the private five-fold experiment harness. Its differences and the
-extracted components are described in [implementation notes](docs/implementation_notes.md).
+extracted components are described in [implementation notes](topology-inference-code/docs/implementation_notes.md).
 
 The original neural implementation uses NumPy and CPU execution, rather than a
 GPU framework. Equipment-name parsing uses generic Chinese role terms and
